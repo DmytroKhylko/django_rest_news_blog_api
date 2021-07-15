@@ -11,3 +11,16 @@ services:
       - "5432:5432"
     volumes:
       - ./db_data/postgres-data:/var/lib/postgresql/data
+
+  python-django:
+    build: .
+    restart: always
+    depends_on: 
+      - db
+    env_file: 
+      - .env
+    ports:
+      - "${PORT}:8000"
+    volumes:
+      - .:/usr/src/api    
+    command: ["./wait-for-it.sh", "db:5432", "--", "./init.sh"]
