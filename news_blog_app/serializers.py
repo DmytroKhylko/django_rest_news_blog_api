@@ -16,10 +16,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return user
 
 
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('id', 'title', 'link', 'creation_date', 'upvote_amount', 'author')
+        fields = ('id', 'title', 'link', 'creation_date', 'author')
 
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
