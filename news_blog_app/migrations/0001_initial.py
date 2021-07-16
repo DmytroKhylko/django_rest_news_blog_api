@@ -11,56 +11,133 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('public_id', models.CharField(max_length=100, unique=True)),
-                ('username', models.CharField(max_length=100)),
-                ('full_name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=100, unique=True)),
-                ('password', models.CharField(max_length=100)),
-                ('date_joined', models.DateTimeField(default=datetime.datetime(2021, 7, 15, 14, 48, 49, 471136, tzinfo=utc), verbose_name='date joined')),
-                ('last_login', models.DateTimeField(default=datetime.datetime(2021, 7, 15, 14, 48, 49, 471152, tzinfo=utc), verbose_name='last login')),
-                ('is_admin', models.BooleanField(default=False)),
-                ('is_active', models.BooleanField(default=True)),
-                ('is_staff', models.BooleanField(default=False)),
-                ('is_superuser', models.BooleanField(default=False)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("public_id", models.CharField(max_length=100, unique=True)),
+                ("username", models.CharField(max_length=100)),
+                ("full_name", models.CharField(max_length=100)),
+                ("email", models.EmailField(max_length=100, unique=True)),
+                ("password", models.CharField(max_length=100)),
+                (
+                    "date_joined",
+                    models.DateTimeField(
+                        default=datetime.datetime(
+                            2021, 7, 15, 14, 48, 49, 471136, tzinfo=utc
+                        ),
+                        verbose_name="date joined",
+                    ),
+                ),
+                (
+                    "last_login",
+                    models.DateTimeField(
+                        default=datetime.datetime(
+                            2021, 7, 15, 14, 48, 49, 471152, tzinfo=utc
+                        ),
+                        verbose_name="last login",
+                    ),
+                ),
+                ("is_admin", models.BooleanField(default=False)),
+                ("is_active", models.BooleanField(default=True)),
+                ("is_staff", models.BooleanField(default=False)),
+                ("is_superuser", models.BooleanField(default=False)),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('link', models.CharField(max_length=255)),
-                ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("link", models.CharField(max_length=255)),
+                ("creation_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='UpVote',
+            name="UpVote",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_blog_app.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="news_blog_app.post",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content', models.TextField()),
-                ('creation_date', models.DateTimeField(auto_now_add=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_blog_app.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("content", models.TextField()),
+                ("creation_date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="news_blog_app.post",
+                    ),
+                ),
             ],
         ),
     ]

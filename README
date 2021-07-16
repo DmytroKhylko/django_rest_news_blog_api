@@ -1,0 +1,23 @@
+## Django News Blog API
+
+#### All necessary variables are stored in ***.env*** file in api top level directory
+##### ***.env*** example
+```
+HOST=0.0.0.0
+PORT=8000
+POSTGRES_DB_HOST=db
+POSTGRES_DB_PORT=5432
+POSTGRES_DB_NAME=postgres
+POSTGRES_DB_USER=postgres
+POSTGRES_DB_PASSWORD=1234
+```
+#### To run API run:
+```
+docker-compose up
+```
+#### Migrations are automatically performed on each lounch 
+#### To perform manual migrations run
+```
+python manage.py makemigrations
+python manage.py migrate
+```

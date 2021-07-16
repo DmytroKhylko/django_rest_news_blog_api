@@ -8,22 +8,28 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news_blog_app', '0004_auto_20210715_1451'),
+        ("news_blog_app", "0004_auto_20210715_1451"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='user',
-            name='full_name',
+            model_name="user",
+            name="full_name",
         ),
         migrations.AlterField(
-            model_name='user',
-            name='date_joined',
-            field=models.DateTimeField(default=datetime.datetime(2021, 7, 15, 15, 13, 43, 630523, tzinfo=utc), verbose_name='date joined'),
+            model_name="user",
+            name="date_joined",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 7, 15, 15, 13, 43, 630523, tzinfo=utc),
+                verbose_name="date joined",
+            ),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='last_login',
-            field=models.DateTimeField(default=datetime.datetime(2021, 7, 15, 15, 13, 43, 630538, tzinfo=utc), verbose_name='last login'),
+            model_name="user",
+            name="last_login",
+            field=models.DateTimeField(
+                default=datetime.datetime(2021, 7, 15, 15, 13, 43, 630538, tzinfo=utc),
+                verbose_name="last login",
+            ),
         ),
     ]
