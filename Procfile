@@ -1,1 +1,0 @@
-resetupvotes: python resetupvotes.py

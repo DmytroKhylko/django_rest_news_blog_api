@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "django-news-blog-test.herokuapp.com"]
 
 
 AUTH_USER_MODEL = "news_blog_app.User"
@@ -107,17 +108,10 @@ WSGI_APPLICATION = "news_blog_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB_NAME"),
-        "USER": os.getenv("POSTGRES_DB_USER"),
-        "PASSWORD": os.getenv("POSTGRES_DB_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_DB_HOST"),
-        "PORT": os.getenv("POSTGRES_DB_PORT"),
-    }
-}
-
+DATABASES = {}
+DATABASES["default"] = dj_database_url.config(
+    default="postgres://aqhtedtathmntd:6f84dc4a8608e1478eb883c406a40719576adeea9d5653de3db068516bc461d8@ec2-54-155-87-214.eu-west-1.compute.amazonaws.com:5432/de7t117466i1qg"
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
