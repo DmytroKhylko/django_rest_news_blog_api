@@ -109,9 +109,7 @@ WSGI_APPLICATION = "news_blog_project.wsgi.application"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {}
-DATABASES["default"] = dj_database_url.config(
-    default="postgres://aqhtedtathmntd:6f84dc4a8608e1478eb883c406a40719576adeea9d5653de3db068516bc461d8@ec2-54-155-87-214.eu-west-1.compute.amazonaws.com:5432/de7t117466i1qg"
-)
+DATABASES["default"] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
