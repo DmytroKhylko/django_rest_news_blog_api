@@ -20,7 +20,7 @@ services:
     env_file: 
       - .env
     ports:
-      - "${PORT}:8000"
+      - "8000:8000"
     volumes:
       - .:/usr/src/api    
     command: ["./wait-for-it.sh", "db:5432", "--", "./init.sh"]
